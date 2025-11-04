@@ -21,13 +21,9 @@ app.use(
 
 // === DATABASE CONNECTION ===
 mongoose
-  .connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(process.env.MONGODB_URI)
   .then(() => console.log("✅ MongoDB (Atlas) Connected"))
   .catch(err => console.log("❌ MongoDB Error:", err));
-
 // === SCHEMA & MODEL ===
 const TodoSchema = new mongoose.Schema({
   title: { type: String, required: true },
